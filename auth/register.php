@@ -50,12 +50,24 @@
                                 <input type="tel" placeholder="Phone Number" id="phone" name="phone" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
                             </div>
                             <div>
+                                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                                <input type="text" placeholder="Username" id="username" name="username" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                            </div>
+                            <div>
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                                 <input type="password" placeholder="Password" id="password" name="password" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
                             </div>
                             <div>
                                 <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
                                 <input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                            </div>
+                            <div>
+                                <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+                                <select id="role" name="role" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                    <option value="">Select Role</option>
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
                             </div>
                             <div class="flex items-center space-x-2">
                                 <input type="checkbox" name="terms" id="terms" required>
