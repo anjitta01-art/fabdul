@@ -16,7 +16,7 @@
         <section class="grid grid-cols-2 min-h-screen">
             <div class="bg-purple-700 text-white flex items-center justify-center">
                 <div>
-                    <h1 class="text-3xl font-bold text-center">Welcome to Fabdul <br/>Tech Rentals</h1>
+                    <h1 class="text-5xl font-bold text-center">Welcome to Fabdul <br/>Tech Rentals</h1>
                     <p class="py-4 text-sm text-center font-medium">Already have an account?</p>
                     <div class="flex justify-center">
                         <a href="#" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-purple-800">Log in</a>
@@ -28,7 +28,7 @@
                     <div class="flex justify-end">
                         <a href="#" class="text-[#535151] text-sm font-semibold">Need Help?</a>
                     </div>
-                    <form class="space-y-4 py-14 px-6"> 
+                    <form class="space-y-4 py-14 px-6" id="register-form" method="POST"> 
                         <h2 class="text-2xl font-bold text-purple-700 text-center">Create Your Account</h2>
                         <div class="space-y-4">
                             <div class="grid grid-cols-2 gap-x-4">
@@ -83,5 +83,8 @@
         </section>
         <?php include '../include/footer.php'; ?>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="../public/js/auth/register.js"></script>
 </body>
 </html>
