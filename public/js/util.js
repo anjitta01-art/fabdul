@@ -65,3 +65,12 @@ function showToast(message, type = "success", duration = 3000) {
     toast.classList.add("hidden");
   }, duration);
 }
+
+function checkAuth() {
+  const user = JSON.parse(window.localStorage.getItem("user"));
+  if (!user) {
+    return null;
+  } else {
+    return user;
+  }
+}

@@ -19,7 +19,16 @@
         </nav>
     </div>
     <div class="flex items-center gap-x-4">
-        <a href="/fabdul/auth/login.php" class="text-[#333333] text-sm border rounded border-[#333] font-medium px-6 py-2">Login</a>
-        <a href="/fabdul/auth/register.php" class="text-white bg-purple-700 py-2 px-4 rounded border border-purple-700 text-sm font-medium">Get Started</a>
+        <?php 
+            session_start();
+            if (isset($_SESSION['username'])) {
+                $user = $_SESSION['username'];
+                echo '<a href="/fabdul/profile.php" class="text-sm font-medium text-[#333333]">' . htmlspecialchars($user) . '</a>';
+                echo '<a href="/fabdul/auth/logout.php" class="text-sm font-medium text-[#333333]">Logout</a>';
+            } else {
+                echo '<a href="/fabdul/auth/login.php" class="text-sm font-medium text-[#333333]">Login</a>';
+                echo '<a href="/fabdul/auth/register.php" class="text-sm font-medium text-[#333333]">Register</a>';
+            }
+        ?>
     </div>
 </header>

@@ -10,11 +10,24 @@ class Auth extends DBConnection {
         return $stmt->num_rows > 0;
     }
 
+    private function usernameTaken($username) {
+        $stmt = $this->getConnection()->prepare("SELECT id FROM users WHERE username = ?");
+        if (!$stmt) return false;
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->store_result();
+        return $stmt->num_rows > 0;
+    }
+
     public function register($name, $email, $phone, $username, $password, $role) {
         $conn = $this->getConnection();
 
         if ($this->emailTaken($email)) {
             return ['success' => false, 'message' => 'Email is already taken'];
+        }
+
+        if ($this->usernameTaken($username)) {
+            return ['success' => false, 'message' => 'Username is already taken'];
         }
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -26,6 +39,37 @@ class Auth extends DBConnection {
             return ['success' => true, 'message' => 'Registration successful'];
         } else {
             return ['success' => false, 'message' => 'Registration failed: ' . $stmt->error];
+        }
+    }
+
+    public function login($username, $password, $role) {
+        $conn = $this->getConnection();
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
+        if (!$stmt) return ['success' => false, 'message' => 'Database error: ' . $conn->error];
+        $stmt->bind_param("ss", $username, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false, 'message' => 'Invalid credentials'];
+        }
+
+        $user = $result->fetch_assoc();
+        $hashedPassword = $user['password'];
+
+        if (password_verify($password, $hashedPassword)) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+            return ['success' => true, 'message' => 'Login successful', 'user' => [
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'username' => $user['username'],
+                'role' => $user['role']
+            ]];
+        } else {
+            return ['success' => false, 'message' => 'Invalid login'];
         }
     }
 }

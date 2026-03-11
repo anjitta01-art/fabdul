@@ -8,6 +8,7 @@ const phone = document.getElementById("phone");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
 const role = document.getElementById("role");
+const createAccountBtn = document.getElementById("create-account-btn");
 
 email.addEventListener("blur", function () {
   validateEmail(email.value.trim(), "email-error");
@@ -37,6 +38,19 @@ form.addEventListener("submit", function (e) {
   formData.append("confirmPassword", confirmPassword.value);
   formData.append("role", role.value);
 
+  if (
+    email.value.trim() === "" ||
+    username.value.trim() === "" ||
+    password.value === "" ||
+    confirmPassword.value === ""
+  ) {
+    showToast("Please fill in all required fields.", "error", 2000);
+    return;
+  }
+
+  createAccountBtn.disabled = true;
+  createAccountBtn.textContent = "Creating Account...";
+
   fetch("/fabdul/controller/auth/register.php", {
     method: "POST",
     body: formData,
@@ -45,6 +59,8 @@ form.addEventListener("submit", function (e) {
     .then((data) => {
       if (data.success) {
         showToast(data.message, "success", 2000);
+        createAccountBtn.disabled = false;
+        createAccountBtn.textContent = "Create Account";
         window.setTimeout(() => {
           window.location.href = "/fabdul/auth/login.php";
         }, 2000);

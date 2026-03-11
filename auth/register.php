@@ -20,7 +20,7 @@
                     <h1 class="text-5xl font-bold text-center">Welcome to Fabdul <br/>Tech Rentals</h1>
                     <p class="py-4 text-sm text-center font-medium">Already have an account?</p>
                     <div class="flex justify-center">
-                        <a href="#" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-purple-800">Log in</a>
+                        <a href="login.php" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-purple-800">Log in</a>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                                 <label for="terms" class="block text-sm font-medium text-gray-700">I accept the terms of the agreement</label>
                             </div>
                             <div class="flex justify-center">
-                                <button type="submit" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer">Create Account</button>
+                                <button type="submit" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer" id="create-account-btn">Create Account</button>
                             </div>
                         </div>
                     </form>
