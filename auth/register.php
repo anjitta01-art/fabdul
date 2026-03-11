@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/laptop_ic.png" type="image/x-icon">
 </head>
 <body>
     <div>
@@ -44,6 +45,7 @@
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                                 <input type="email" placeholder="Email" id="email" name="email" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <div id="email-error" class="text-red-500 text-xs mt-1"></div>
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
@@ -52,6 +54,7 @@
                             <div>
                                 <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                                 <input type="text" placeholder="Username" id="username" name="username" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <div id="username-error" class="text-red-500 text-xs mt-1"></div>
                             </div>
                             <div>
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
@@ -60,6 +63,7 @@
                             <div>
                                 <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
                                 <input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <div id="confirm-password-error" class="text-red-500 text-xs mt-1"></div>
                             </div>
                             <div>
                                 <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
@@ -82,9 +86,16 @@
             </div>
         </section>
         <?php include '../include/footer.php'; ?>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="hidden fixed top-5 right-5 z-50">
+            <div id="toast-box" class="bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-3">
+                <div id="toast-message" class="text-sm"></div>
+            </div>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="../public/js/util.js"></script>
     <script src="../public/js/auth/register.js"></script>
 </body>
 </html>
