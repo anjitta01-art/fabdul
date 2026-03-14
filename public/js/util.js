@@ -74,3 +74,10 @@ function checkAuth() {
     return user;
   }
 }
+
+function getInitials(name) {
+  if (!name || name.trim() === "") return "";
+  const names = name.split(" ");
+  const initials = names.map((n) => n.charAt(0).toUpperCase()).join("");
+  return initials;
+}

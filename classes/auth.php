@@ -60,8 +60,9 @@ class Auth extends DBConnection {
         if (password_verify($password, $hashedPassword)) {
             session_start();
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['name'] = $user['name'];
             $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
+            $_SESSION['email'] = $user['email'];
             return ['success' => true, 'message' => 'Login successful', 'user' => [
                 'name' => $user['name'],
                 'email' => $user['email'],
@@ -71,5 +72,13 @@ class Auth extends DBConnection {
         } else {
             return ['success' => false, 'message' => 'Invalid login'];
         }
+    }
+
+    public function logout() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset();
+        session_destroy();
     }
 }
