@@ -31,7 +31,11 @@ form.addEventListener("submit", function (e) {
       if (data.success) {
         showToast(data.message, "success", 2000);
         window.localStorage.setItem("user", JSON.stringify(data.user));
-        window.location.href = "/fabdul/index.php";
+        if (data.user.role === "admin") {
+          window.location.href = "/fabdul/admin/index.php";
+        } else {
+          window.location.href = "/fabdul/index.php";
+        }
       } else {
         showToast(data.message, "error");
         loginButton.disabled = false;
