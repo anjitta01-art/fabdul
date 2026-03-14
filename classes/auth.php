@@ -63,6 +63,7 @@ class Auth extends DBConnection {
             $_SESSION['name'] = $user['name'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
             return ['success' => true, 'message' => 'Login successful', 'user' => [
                 'name' => $user['name'],
                 'email' => $user['email'],
