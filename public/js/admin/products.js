@@ -82,8 +82,7 @@ function deleteProduct() {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        showToast("Product deleted successfully", "success", 2000);
-
+        showToast(data.message, "success", 2000);
         const rowToDelete = document.querySelector(
           `tr[data-product-id="${productIdToDelete}"]`,
         );

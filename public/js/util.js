@@ -81,3 +81,22 @@ function getInitials(name) {
   const initials = names.map((n) => n.charAt(0).toUpperCase()).join("");
   return initials;
 }
+
+function formatDate(dateString) {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const date = new Date(dateString);
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} - ${date.getHours()}:${String(date.getMinutes()).padStart(2, "0")}`;
+}
