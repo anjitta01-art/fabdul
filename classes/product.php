@@ -40,7 +40,7 @@ class Product {
 
     public function getProductById($id) {
         $conn = $this->db->getConnection();
-        $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features, description FROM equipments WHERE id = ?");
+        $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features, description, updated_at, created_at FROM equipments WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -87,5 +87,22 @@ class Product {
         } else {
             return ['success' => false, 'message' => 'Failed to delete product: ' . $stmt->error];
         }
+    }
+
+    public function increaseQuantity($productId, $quantity) {
+        $conn = $this->db->getConnection();
+
+        $stmt = $conn->prepare("UPDATE equipments SET quantity = quantity + ? WHERE id = ?");
+        $stmt->bind_param("ii", $quantity, $productId);
+        $stmt->execute();
+        return $stmt->affected_rows > 0 ? ['success' => true] : ['success' => false];
+    }
+
+    public function decreaseQuantity($productId, $quantity) {
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare(" UPDATE equipments SET quantity = quantity - ? WHERE id = ?");
+        $stmt->bind_param("ii", $quantity, $productId);
+        $stmt->execute();
+        return $stmt->affected_rows > 0? ['success' => true] : ['success' => false];
     }
 }

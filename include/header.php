@@ -4,7 +4,7 @@
         <nav>
             <ul class="flex items-center space-x-4 text-sm font-medium text-[#333333]">
                 <li>
-                    <a href="#">Laptops</a>
+                    <a href="equipments/index.php">Equipments</a>
                 </li>
                 <li>
                     <a href="#">Workstations</a>
