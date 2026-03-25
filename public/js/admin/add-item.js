@@ -8,8 +8,13 @@ const category = document.getElementById("category");
 const features = document.getElementById("features");
 const quantity = document.getElementById("quantity");
 
+const submitBtn = document.getElementById("submit-btn");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Adding...";
 
   const formData = new FormData();
   formData.append("name", name.value);
@@ -20,13 +25,25 @@ form.addEventListener("submit", (e) => {
   formData.append("features", features.value);
   formData.append("quantity", quantity.value);
 
-  console.log("Form data:", {
-    name: name.value,
-    price_per_day: price.value,
-    description: description.value,
-    image: image.files[0],
-    category: category.value,
-    features: features.value,
-    quantity: quantity.value,
-  });
+  fetch("/fabdul/controller/admin/add-equipment.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        showToast(data.message, "success", 2000);
+        form.reset();
+      } else {
+        showToast(data.message, "error", 2000);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      showToast("An error occured.", "error", 2000);
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Add Item";
+    });
 });

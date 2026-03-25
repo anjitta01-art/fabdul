@@ -1,4 +1,4 @@
-<nav class="bg-gray-800 text-white w-64 min-h-[calc(100vh-74px)] p-6 flex flex-col justify-between">
+<nav class="bg-gray-800 text-white w-64 sticky top-0 h-[calc(100vh-74px)] p-6 flex flex-col justify-between">
     <ul class="space-y-4 text-sm">
         <li><a href="/fabdul/admin/index.php">Dashboard</a></li>
         <li><a href="/fabdul/admin/users.php">Users</a></li>

@@ -17,7 +17,7 @@ include '../include/check-auth.php';
 <body>
     <div>
         <?php include '../include/admin-header.php'; ?>
-        <main>
+        <main class="pt-[74px]">
             <div class="flex">
                 <?php include '../include/sidebar.php'; ?>
                 <div class="p-10 w-full">

@@ -19,6 +19,19 @@ class Auth extends DBConnection {
         return $stmt->num_rows > 0;
     }
 
+    private function isAdmin($userId) {
+        $stmt = $this->getConnection()->prepare("SELECT role FROM users WHERE id = ?");
+        if (!$stmt) return false;
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows === 0) {
+            return false;
+        }
+        $user = $result->fetch_assoc();
+        return $user['role'] === 'admin';
+    }
+
     public function register($name, $email, $phone, $username, $password, $role) {
         $conn = $this->getConnection();
 
