@@ -56,6 +56,18 @@ include '../../include/check-auth.php';
                 <div id="toast-message" class="text-sm"></div>
             </div>
         </div>
+
+        <!-- Delete Modal -->
+        <div id="delete-modal" class="hidden fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold mb-4">Delete Product</h2>
+                <p class="text-gray-600">Are you sure you want to delete this product?</p>
+                <div class="flex justify-end gap-3 mt-6">
+                    <button id="cancel-delete" class="bg-gray-300 text-gray-700 text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Cancel</button>
+                    <button id="confirm-delete" class="bg-red-600 text-white text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 

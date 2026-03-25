@@ -50,4 +50,42 @@ class Product {
             return ['success' => false, 'message' => 'Product not found'];
         }
     }
+
+    public function updateProduct($id, $name, $category, $features, $description, $price, $quantity, $image) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("UPDATE equipments SET product_name = ?, category = ?, features = ?, description = ?, price = ?, quantity = ?, image = ? WHERE id = ?");
+        $stmt->bind_param("ssssdisi", $name, $category, $features, $description, $price, $quantity, $image, $id);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            return ['success' => true, 'message' => 'Product updated successfully'];
+        } else {
+            return ['success' => false, 'message' => 'Failed to update product: ' . $stmt->error];
+        }
+    }
+
+    public function deleteProduct($id) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("DELETE FROM equipments WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            return ['success' => true, 'message' => 'Product deleted successfully'];
+        } else {
+            return ['success' => false, 'message' => 'Failed to delete product: ' . $stmt->error];
+        }
+    }
 }

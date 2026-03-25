@@ -54,6 +54,31 @@ form.addEventListener("submit", (e) => {
   formData.append("features", features.value);
   formData.append("description", description.value);
   if (image.files[0]) {
-    formData.append("product_image", image.files[0]);
+    formData.append("image", image.files[0]);
   }
+  formData.append(
+    "current_image",
+    document.getElementById("current-image").src,
+  );
+
+  fetch("/fabdul/controller/admin/products/edit-item.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        showToast(data.message, "success", 2000);
+      } else {
+        showToast(data.message, "error", 2000);
+      }
+    })
+    .catch((error) => {
+      console.log("Error updating product:", error);
+      showToast("An error occurred", "error", 2000);
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Update Product";
+    });
 });

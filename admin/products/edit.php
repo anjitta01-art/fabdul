@@ -57,13 +57,13 @@ include '../../include/check-auth.php';
                         </div>
                         <div>
                             <label for="image" class="block text-sm font-medium text-gray-700">New Product Image</label>
-                            <input type="file" name="product_image" id="image" accept="image/*" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500">
+                            <input type="file" name="product_image" id="image" accept="image/*" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500">
                         </div>
                         <div>
                             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                             <textarea name="description" id="description" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-purple-500 focus:border-purple-500"></textarea>
                         </div>
-                        <button type="submit" id="edit-item-btn" class="bg-purple-600 text-white text-sm py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 cursor-pointer">Edit Item</button>
+                        <button type="submit" id="edit-item-btn" class="bg-purple-600 text-white text-sm py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 cursor-pointer">Update Product</button>
                     </form>
                 </div>
             </div>
