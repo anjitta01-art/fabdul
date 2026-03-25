@@ -27,4 +27,27 @@ class Product {
             return ['success' => false, 'message' => 'Failed to add equipment: ' . $stmt->error];
         }
     }
+
+    public function getAllProducts() {
+        $conn = $this->db->getConnection();
+        $result = $conn->query("SELECT id, product_name, category, price, quantity, image, features FROM equipments");
+        $products = [];
+        while ($row = $result->fetch_assoc()) {
+            $products[] = $row;
+        }
+        return ['success' => true, 'message' => 'All products', 'data' => $products];
+    }
+
+    public function getProductById($id) {
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features, description FROM equipments WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return ['success' => true, 'message' => 'Product found', 'data' => $result->fetch_assoc()];
+        } else {
+            return ['success' => false, 'message' => 'Product not found'];
+        }
+    }
 }
