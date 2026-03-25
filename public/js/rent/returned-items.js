@@ -2,9 +2,7 @@ const productList = document.getElementById("product-lists");
 const noItem = document.getElementById("no-product");
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/fabdul/controller/rent/history.php", {
-    method: "GET",
-  })
+  fetch("/fabdul/controller/rent/returned-items.php")
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
@@ -17,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           items.forEach((item) => {
             let features = item.features ? item.features.split(",") : [];
-            let returned = item.returned_date !== null;
             let content = `
               <li class="bg-white rounded-xl shadow-lg border border-[#eee]">
                 <div class="relative rounded-t-xl overflow-hidden h-48">
@@ -58,15 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
                       £${item.rent_price} 
                       <span class="text-sm text-[#535151]">/day</span>
                     </span>
-                    ${
-                      returned
-                        ? `<span class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1.5 rounded-md">
-                            Returned
-                        </span>`
-                        : `<button class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition text-sm cursor-pointer" onclick="openReturnModal(${item.id})">
-                            Return Item
-                        </button>`
-                    }
+                    <span class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1.5 rounded-md">
+                        Returned
+                    </span>
                   </div>
                 </div>
               </li>
@@ -84,46 +75,3 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast("An error occurred", "error", 2000);
     });
 });
-
-const returnModal = document.getElementById("return-modal");
-const confirmReturnBtn = document.getElementById("confirm-return");
-const cancelReturnBtn = document.getElementById("cancel-return");
-
-let rentReturnId = null;
-
-function openReturnModal(rentId) {
-  rentReturnId = rentId;
-  returnModal.classList.remove("hidden");
-}
-
-cancelReturnBtn.addEventListener("click", () => {
-  rentReturnId = null;
-  returnModal.classList.add("hidden");
-});
-
-confirmReturnBtn.addEventListener("click", () => {
-  returnProduct();
-  rentReturnId = null;
-  returnModal.classList.add("hidden");
-});
-
-function returnProduct() {
-  if (!rentReturnId) return;
-
-  fetch(`/fabdul/controller/rent/return-item.php?id=${rentReturnId}`, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        showToast(data.message, "success", 2000);
-        window.location.href = "/fabdul/equipments/rent-history.php";
-      } else {
-        showToast(data.message, "error", 2000);
-      }
-    })
-    .catch((error) => {
-      console.error("Error deleting product:", error);
-      showToast("An error occurred", "error", 2000);
-    });
-}

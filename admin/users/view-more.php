@@ -72,18 +72,20 @@ $userId = isset($_GET['id']) ? intval($_GET['id']) : 0;
                                 <thead class="bg-gray-100 text-gray-700 uppercase text-sm tracking-wider">
                                     <tr>
                                         <th class="px-6 py-3 text-left">ID</th>
-                                        <th class="px-6 py-3 text-left">Product Name</th>
+                                        <th class="px-6 py-3 text-left w-60">Product Name</th>
                                         <th class="px-6 py-3 text-left">Category</th>
-                                        <th class="px-6 py-3 text-left">Rent Date</th>
+                                        <th class="px-6 py-3 text-left w-44">Rent Date</th>
                                         <th class="px-6 py-3 text-left">Rent Price</th>
-                                        <th class="px-6 py-3 text-left">Returned Date</th>
+                                        <th class="px-6 py-3 text-left">Quantity</th>
+                                        <th class="px-6 py-3 text-left w-44">Return Date</th>
+                                        <th class="px-6 py-3 text-left w-48">Returned</th>
                                     </tr>
                                 </thead>
-                                <tbody id="users-table" class="divide-y divide-gray-200 bg-white text-gray-700">
+                                <tbody id="rent-history-table" class="divide-y divide-gray-200 bg-white text-gray-700">
                                     <!-- Users appear here -->
 
                                     <tr class="hover:bg-gray-50 transition hidden" id="no-data">
-                                        <td colspan="6" class="text-center py-6 text-gray-500">
+                                        <td colspan="8" class="text-center py-6 text-gray-500">
                                             No rents found
                                         </td>
                                     </tr>

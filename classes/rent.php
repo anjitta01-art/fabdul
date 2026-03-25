@@ -74,11 +74,7 @@ class Rent {
             $row['total_pay'] = $row['rent_price'] * $row['quantity'] * $dayDiff; 
             $products[] = $row;
         }
-        if (count($products) > 0) {
-            return ['success' => true, 'message' => 'Rented Equipments', 'data' => $products];
-        } else {
-            return [ 'success' => false, 'message' => 'No rents found'];
-        }
+        return ['success' => true, 'message' => 'Rented Equipments', 'data' => $products];
     }
 
     public function returnItem($rentId) {
@@ -111,5 +107,57 @@ class Rent {
         } else {
             return ['success' => false, 'message' => 'Failed to return item'];
         }
+    }
+
+    public function getReturnedRentHistory() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id'])) {
+            return ['success' => false, 'message' => 'Login to view rent history'];
+        }
+        $userId = $_SESSION['user_id'];
+
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("SELECT r.id, r.rent_date, r.return_date, r.quantity, r.rent_price, r.returned_date, e.product_name, e.category, e.features, e.image FROM rents AS r INNER JOIN equipments AS e  ON r.product_id = e.id WHERE r.user_id = ? AND r.returned_date IS NOT NULL ORDER BY r.created_at DESC");
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $products = [];
+        while ($row = $result->fetch_assoc()) {
+            $rentDate = strtotime($row['rent_date']);
+            $returnDate = strtotime($row['return_date']);
+            $dayDiff = ($returnDate - $rentDate) / (60 * 60 * 24);
+            $row['total_pay'] = $row['rent_price'] * $row['quantity'] * $dayDiff; 
+            $products[] = $row;
+        }
+        return ['success' => true, 'message' => 'Rented Equipments', 'data' => $products];
+    }
+
+    public function getRentHistory($renterID) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+        $userId = $_SESSION['user_id'];
+
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("SELECT r.id, r.rent_date, r.return_date, r.quantity, r.rent_price, r.returned_date, e.product_name, e.category, e.features, e.image FROM rents AS r INNER JOIN equipments AS e  ON r.product_id = e.id WHERE r.user_id = ? ORDER BY r.created_at DESC");
+        $stmt->bind_param("i", $renterID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $products = [];
+        while ($row = $result->fetch_assoc()) {
+            $rentDate = strtotime($row['rent_date']);
+            $returnDate = strtotime($row['return_date']);
+            $dayDiff = ($returnDate - $rentDate) / (60 * 60 * 24);
+            $row['total_pay'] = $row['rent_price'] * $row['quantity'] * $dayDiff; 
+            $products[] = $row;
+        }
+        return ['success' => true, 'message' => 'Rented Equipments', 'data' => $products];
     }
 }

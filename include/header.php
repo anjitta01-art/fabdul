@@ -12,7 +12,7 @@
                     }
                     if (isset($_SESSION['user_id'])) {
                         echo '<li>
-                                <a href="equipments/rent-history.php">All Rents</a>
+                                <a href="/fabdul/equipments/rent-history.php">All Rents</a>
                             </li>';
                     }
                 ?>
@@ -22,13 +22,10 @@
                     }
                     if (isset($_SESSION['user_id'])) {
                         echo '<li>
-                                <a href="equipments/returned-items.php">Returned Items</a>
+                                <a href="/fabdul/equipments/returned-items.php">Returned Items</a>
                             </li>';
                     }
                 ?>
-                <li>
-                    <a href="#">Servers</a>
-                </li>
                 <li>
                     <a href="#">Pricing</a>
                 </li>
