@@ -17,11 +17,9 @@
         <section class="py-14 px-20 space-y-8 bg-purple-300/40">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-purple-700">Rent History</h2>
-                    <p class="text-sm text-[#333] w-2/3 font-medium">Browse through your rent history here.</p>
+                    <h2 class="text-3xl font-bold text-purple-700">Rent History</h2>
                 </div>
             </div>
-            
             <ul class="grid grid-cols-3 gap-10 pt-5" id="product-lists">
                 <li class="bg-white rounded-xl shadow-lg border border-[#eee]">
                     <div class="relative rounded-t-xl overflow-hidden h-48">
@@ -30,7 +28,7 @@
                         <div class="absolute inset-0 bg-black/30 z-10"></div>
                     </div>
                     <div>
-                        <div class="px-4 pt-4 pb-8 space-y-2">
+                        <div class="px-4 pt-4 pb-4 space-y-2">
                             <p class="text-xs font-semibold text-purple-700">LAPTOPS</p>
                             <h3 class="text-lg font-bold">MacBook Pro 16"M3 Max</h3>
                             <ul class="space-y-3 text-sm text-[#535151] font-medium">
@@ -48,14 +46,28 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="px-4 pt-4 pb-8 space-y-4">
+                            <div>
+                                <span class="text-gray-600">Rent Date:</span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <span class="text-gray-600">Renturn Date:</span>
+                                <span></span>
+                            </div>
+                            <div>
+                                <span class="text-gray-600">Total pay:</span>
+                                <span class="text-purple-700"></span>
+                            </div>
+                        </div>
                         <div class="flex items-center justify-between px-4 py-4 border-t-2 border-[#bbb]">
-                            <span class="text-xl font-bold">$149 <span class="text-sm text-[#535151]">/mo</span></span>
-                            <a href="#" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-sm font-medium">Rent Now</a>
+                            <span class="text-xl font-bold">£149 <span class="text-sm text-[#535151]">/day</span></span>
+                            <button type="button" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-sm font-medium">Return Item</button>
                         </div>
                     </div>
                 </li>
 
-                <li class="text-center text-gray-600" id="no-product">No product yet</li>
+                <li class="text-center text-gray-600 hidden" id="no-product">No product yet</li>
             </ul>
             <div class="pt-10 px-10">
                 <div class="bg-purple-700 rounded-xl flex items-center justify-between py-10 px-8">
@@ -81,8 +93,30 @@
             </div>
         </section>
         <?php include '../include/footer.php'; ?>
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="hidden fixed top-5 right-5 z-50">
+            <div id="toast-box" class="bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-3">
+                <div id="toast-message" class="text-sm"></div>
+            </div>
+        </div>
+
+        <!-- Return Modal -->
+        <div id="return-modal" class="hidden fixed inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold mb-4">Return Product</h2>
+                <p class="text-gray-600">Are you sure you want to return this product?</p>
+                <div class="flex justify-end gap-3 mt-6">
+                    <button id="cancel-return" class="bg-gray-300 text-gray-700 text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Cancel</button>
+                    <button id="confirm-return" class="bg-purple-700 text-white text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2">Return Item</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="../public/js/equipment/all.js"></script>
+
+    <script src="../public/js/util.js"></script>
+    <script src="../public/js/rent/rent-history.js"></script>
 </body>
 </html>

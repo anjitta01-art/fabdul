@@ -6,9 +6,26 @@
                 <li>
                     <a href="equipments/index.php">Equipments</a>
                 </li>
-                <li>
-                    <a href="#">Workstations</a>
-                </li>
+                <?php 
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
+                    }
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<li>
+                                <a href="equipments/rent-history.php">All Rents</a>
+                            </li>';
+                    }
+                ?>
+                <?php 
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
+                    }
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<li>
+                                <a href="equipments/returned-items.php">Returned Items</a>
+                            </li>';
+                    }
+                ?>
                 <li>
                     <a href="#">Servers</a>
                 </li>
@@ -23,7 +40,7 @@
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['user_id'])) {
             $name = $_SESSION['name'] ?? 'User';
             $email = $_SESSION['email'] ?? '';
             $initials = implode('', array_map(function($part) { return strtoupper($part[0]); }, explode(' ', $name)));
