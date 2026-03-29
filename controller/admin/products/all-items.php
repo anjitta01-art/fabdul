@@ -8,7 +8,8 @@ require_once '../../../classes/product.php';
 $product = new Product();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $result = $product->getAllProducts();
+    $searchString = isset($_GET['search']) ? $_GET['search'] : null;
+    $result = $product->getAllProducts($searchString);
     echo json_encode($result);
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);

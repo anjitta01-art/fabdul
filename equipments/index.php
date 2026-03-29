@@ -22,10 +22,13 @@
                 </div>
             </div>
             <div>
-                <form>
-                    <div class="border border-gray-600 text-sm p-2 rounded-md w-max">
-                        <input type="text" placeholder="search products..." class="w-96 focus:outline-none">
-                        <button class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-sm font-medium cursor-pointer">Search</button>
+                <form id="search-form">
+                    <div class="border border-gray-600 text-sm p-2 rounded-md w-max flex">
+                        <input type="text" placeholder="search products..." id="search-field" class="w-96 focus:outline-none">
+                        <span class="flex gap-x-2 items-center">
+                            <button type="button" id="clear-btn" class="text-2xl text-red-500 font-semibold cursor-pointer">&times;</button>
+                            <button class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-xs font-medium cursor-pointer">Search</button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -106,8 +109,17 @@
             </div>
         </section>
         <?php include '../include/footer.php'; ?>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="hidden fixed top-5 right-5 z-50">
+            <div id="toast-box" class="bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-3">
+                <div id="toast-message" class="text-sm"></div>
+            </div>
+        </div>
     </div>
 
+
+    <script src="../public/js/util.js"></script>
     <script src="../public/js/equipment/all.js"></script>
 </body>
 </html>

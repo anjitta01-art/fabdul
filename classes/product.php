@@ -28,14 +28,22 @@ class Product {
         }
     }
 
-    public function getAllProducts() {
+    public function getAllProducts($search_string = null) {
         $conn = $this->db->getConnection();
-        $result = $conn->query("SELECT id, product_name, category, price, quantity, image, features FROM equipments");
+        if ($search_string) {
+            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments WHERE product_name LIKE ?");
+            $search = "%" . $search_string . "%";
+            $stmt->bind_param("s", $search);
+        } else {
+            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments");
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
         $products = [];
         while ($row = $result->fetch_assoc()) {
             $products[] = $row;
         }
-        return ['success' => true, 'message' => 'All products', 'data' => $products];
+        return [ 'success' => true, 'message' => 'All products', 'data' => $products ];
     }
 
     public function getProductById($id) {
