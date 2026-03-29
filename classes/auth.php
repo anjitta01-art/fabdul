@@ -71,10 +71,12 @@ class Auth extends DBConnection {
         $hashedPassword = $user['password'];
 
         if (password_verify($password, $hashedPassword)) {
-            $updateStmt = $conn->prepare("UPDATE users SET role = ? WHERE id = ?");
-            $updateStmt->bind_param("si", $role, $user['id']);
-            $updateStmt->execute();
-
+            if (!empty($role)) {
+                $updateStmt = $conn->prepare("UPDATE users SET role = ? WHERE id = ?");
+                $updateStmt->bind_param("si", $role, $user['id']);
+                $updateStmt->execute();
+            }
+            
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['name'] = $user['name'];

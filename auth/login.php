@@ -57,7 +57,7 @@ if (isset($_SESSION['user_id'])) {
                             </div>
                             <div>
                                 <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                                <select id="role" name="role" class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <select id="role" name="role" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
                                     <option value="">Select Role</option>
                                     <option value="user">User</option>
                                     <option value="admin">Admin</option>

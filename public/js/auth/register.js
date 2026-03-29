@@ -34,7 +34,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const formData = new FormData();
-  formData.append("name", `${firstName.value} ${lastName.value}`);
+  formData.append("name", `${firstName.value.trim()} ${lastName.value.trim()}`);
   formData.append("email", email.value);
   formData.append("username", username.value);
   formData.append("phone", phone.value);
