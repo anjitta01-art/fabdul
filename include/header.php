@@ -1,6 +1,11 @@
 <header class="flex items-center py-5 px-20 border-b border-[#dfdfdf] justify-between">
     <div class="flex gap-x-8 items-center">
-        <a href="/fabdul/" class="text-2xl text-purple-700 italic font-extrabold">FABDUL</a>
+        <a href="/fabdul/" class="flex items-center gap-x-2">
+            <span>
+                <img src="/fabdul/images/laptop_ic.png" alt="Fabdul logo" class="w-8">
+            </span>
+            <span class="text-xl text-purple-700 italic font-extrabold">FABDUL</span>
+        </a>
         <nav>
             <ul class="flex items-center space-x-4 text-sm font-medium text-[#333333]">
                 <li>
