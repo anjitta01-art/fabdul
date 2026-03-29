@@ -43,16 +43,16 @@ if (isset($_SESSION['user_id'])) {
                     <div class="flex justify-end">
                         <a href="#" class="text-[#535151] text-sm font-semibold">Need Help?</a>
                     </div>
-                    <form class="space-y-4 py-14 px-10" id="login-form" method="POST"> 
+                    <form class="space-y-4 py-14 px-10" id="login-form" method="POST" autocomplete="off"> 
                         <h2 class="text-3xl font-bold text-purple-700 text-center">Welcome Back!</h2>
                         <div class="space-y-4">
                             <div>
                                 <label for="username" class="block text-sm font-medium text-gray-700">Username/email</label>
-                                <input type="text" placeholder="Username" id="username" name="username" class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <input type="text" placeholder="Username" id="username" name="username" class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full" autocomplete="new-password">
                             </div>
                             <div>
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                                <input type="password" placeholder="Password" id="password" name="password" class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <input type="password" placeholder="Password" id="password" name="password" class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full" autocomplete="new-password">
                                 <div id="login-error" class="text-red-500 text-xs mt-1"></div>
                             </div>
                             <div>
