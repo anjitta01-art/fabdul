@@ -21,6 +21,10 @@ phone.addEventListener("blur", () => {
   validatePhoneNumber(phone.value.trim(), "phone-error");
 });
 
+password.addEventListener("blur", () => {
+  validatePassword(password.value.trim(), "password-error");
+});
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 

@@ -18,7 +18,7 @@ class User {
         }
 
         $conn = $this->db->getConnection();
-        $result = $conn->query("SELECT id, name, email, role, status, created_at FROM users");
+        $result = $conn->query("SELECT id, name, email, role, status, created_at FROM users ORDER BY created_at DESC");
         $users = [];
         while ($row = $result->fetch_assoc()) {
             $users[] = $row;
@@ -89,6 +89,27 @@ class User {
             return ['success' => true, 'message' => 'User added successful'];
         } else {
             return ['success' => false, 'message' => 'Add user failed: ' . $stmt->error];
+        }
+    }
+
+    public function deleteUser($userID){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+
+        $loginUserId = $_SESSION['user_id'];
+
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("DELETE FROM users WHERE id = ? AND id != ?");
+        $stmt->bind_param("ii", $userID, $loginUserId);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            return ['success' => true, 'message' => 'User deleted successfully'];
+        } else {
+            return ['success' => false, 'message' => 'Failed to delete user: ' . $stmt->error];
         }
     }
 }

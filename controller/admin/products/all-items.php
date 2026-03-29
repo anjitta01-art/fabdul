@@ -9,7 +9,8 @@ $product = new Product();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $searchString = isset($_GET['search']) ? $_GET['search'] : null;
-    $result = $product->getAllProducts($searchString);
+    $category = isset($_GET['category']) ? $_GET['category'] : null;
+    $result = $product->getAllProducts($searchString, $category);
     echo json_encode($result);
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);

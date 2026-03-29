@@ -22,13 +22,23 @@
                 </div>
             </div>
             <div>
-                <form id="search-form">
+                <form id="search-form" class="flex justify-between items-center">
                     <div class="border border-gray-600 text-sm p-2 rounded-md w-max flex">
                         <input type="text" placeholder="search products..." id="search-field" class="w-96 focus:outline-none">
                         <span class="flex gap-x-2 items-center">
                             <button type="button" id="clear-btn" class="text-2xl text-red-500 font-semibold cursor-pointer">&times;</button>
                             <button class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-xs font-medium cursor-pointer">Search</button>
                         </span>
+                    </div>
+                    <div>
+                        <select name="searchCategory" id="search-category" class="min-w-60 bg-white p-2 rounded-lg">
+                            <option value="">Search by category</option>
+                            <option value="laptops">Laptops</option>
+                            <option value="desktops">Desktops</option>
+                            <option value="servers">Servers</option>
+                            <option value="speakers">Speakers</option>
+                            <option value="headphones">Headphones</option>
+                        </select>
                     </div>
                 </form>
             </div>

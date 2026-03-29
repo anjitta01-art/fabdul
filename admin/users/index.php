@@ -58,16 +58,16 @@ include '../../include/check-auth.php';
             </div>
         </div>
 
-        <!-- Deactivate Modal -->
-        <div id="deactivate-modal" class="hidden fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-xl font-bold mb-4">Deactivate User</h2>
-                <p class="text-gray-600">Are you sure you want to deactivate this user?</p>
+        <!-- Delete Modal -->
+        <div id="delete-modal" class="hidden fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
+            <form id="delete-form" class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold mb-4">Delete User</h2>
+                <p class="text-gray-600">Are you sure you want to delete this user?</p>
                 <div class="flex justify-end gap-3 mt-6">
-                    <button id="cancel-deactivate" class="bg-gray-300 text-gray-700 text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Cancel</button>
-                    <button id="confirm-deactivate" class="bg-red-600 text-white text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Deactivate</button>
+                    <button id="cancel-delete" class="bg-gray-300 text-gray-700 text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Cancel</button>
+                    <button id="confirm-delete" type="button" class="bg-red-600 text-white text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 

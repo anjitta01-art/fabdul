@@ -36,6 +36,21 @@ function validatePhoneNumber(phoneNumber, errorId) {
   return isValid;
 }
 
+function validatePassword(password, errorId) {
+  const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/;
+  const isValid = passwordRegex.test(password);
+
+  const errorElement = document.getElementById(errorId);
+
+  if (!isValid && errorElement) {
+    errorElement.textContent =
+      "Password must be at least 8 characters long and include at least 1 number and 1 special character";
+  } else if (errorElement) {
+    errorElement.textContent = "";
+  }
+  return isValid;
+}
+
 function validateConfirmPassword(password, confirmPassword, errorId) {
   const isValid = password === confirmPassword;
   const errorElement = document.getElementById(errorId);

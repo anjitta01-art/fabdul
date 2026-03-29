@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="/fabdul/admin/users/view-more.php?id=${item.id}" class="bg-blue-500 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-600 transition">
                             View More
                         </a>
-                        <button type="button" class="bg-red-500 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-red-600 transition cursor-pointer" onclick="openDeactivateModal(${item.id})">
-                            ${item.status === "active" ? "Deactivate" : "Activate"}
+                        <button type="button" class="bg-red-500 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-red-600 transition cursor-pointer" onclick="opendeleteModal(${item.id})">
+                            Delete
                         </button>
                     </td>
                 `;
@@ -53,47 +53,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const deactivateModal = document.getElementById("deactivate-modal");
-const confirmDeactivateBtn = document.getElementById("confirm-deactivate");
-const cancelDeactivateBtn = document.getElementById("cancel-deactivate");
+const deleteModal = document.getElementById("delete-modal");
+const confirmDeleteBtn = document.getElementById("confirm-delete");
+const cancelDeleteBtn = document.getElementById("cancel-delete");
 
-let userIdToDeactivate = null;
+let userIdtoDelete = null;
 
-function openDeactivateModal(userId) {
-  userIdToDeactivate = userId;
-  deactivateModal.classList.remove("hidden");
+function opendeleteModal(userId) {
+  userIdtoDelete = userId;
+  deleteModal.classList.remove("hidden");
 }
 
-cancelDeactivateBtn.addEventListener("click", () => {
-  userIdToDeactivate = null;
-  deactivateModal.classList.add("hidden");
+cancelDeleteBtn.addEventListener("click", () => {
+  userIdtoDelete = null;
+  deleteModal.classList.add("hidden");
 });
 
-confirmDeactivateBtn.addEventListener("click", () => {
-  deleteProduct();
-  userIdToDeactivate = null;
-  deactivateModal.classList.add("hidden");
+confirmDeleteBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  deleteUser();
+  userIdtoDelete = null;
+  deleteModal.classList.add("hidden");
 });
 
-function deleteProduct() {
-  if (!userIdToDeactivate) return;
+function deleteUser() {
+  if (!userIdtoDelete) return;
 
-  fetch(
-    `/fabdul/controller/admin/users/update-status.php?id=${userIdToDeactivate}`,
-    {
-      method: "PUT",
-    },
-  )
+  fetch(`/fabdul/controller/admin/users/delete-user.php?id=${userIdtoDelete}`, {
+    method: "DELETE",
+  })
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
         showToast(data.message, "success", 2000);
+        const row = tableBody.querySelector(
+          `tr[data-product-id='${userIdtoDelete}']`,
+        );
+        if (row) {
+          row.remove();
+        }
+
+        if (tableBody.querySelectorAll("tr").length === 0) {
+          noDataRow.classList.remove("hidden");
+        }
       } else {
         showToast(data.message, "error", 2000);
       }
     })
     .catch((error) => {
-      console.error("Error deactivating user:", error);
+      console.error("Error deleting user:", error);
       showToast("An error occurred", "error", 2000);
     });
 }

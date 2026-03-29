@@ -53,6 +53,7 @@ include '../../include/check-auth.php';
                             <div>
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                                 <input type="text" placeholder="Password" id="password" name="password" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <div id="password-error" class="text-red-500 text-xs mt-1"></div>
                             </div>
                             <div>
                                 <label for="role" class="block text-sm font-medium text-gray-700">Role</label>

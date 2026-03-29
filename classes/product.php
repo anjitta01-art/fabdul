@@ -28,22 +28,30 @@ class Product {
         }
     }
 
-    public function getAllProducts($search_string = null) {
+    public function getAllProducts($search_string = null, $category = null) {
         $conn = $this->db->getConnection();
-        if ($search_string) {
-            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments WHERE product_name LIKE ?");
+        if ($search_string && $category) {
+            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments WHERE product_name LIKE ? AND category = ? ORDER BY created_at DESC");
+            $search = "%" . $search_string . "%";
+            $stmt->bind_param("ss", $search, $category);
+        } else if ($search_string) {
+            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments WHERE product_name LIKE ? ORDER BY created_at DESC");
             $search = "%" . $search_string . "%";
             $stmt->bind_param("s", $search);
+        } else if ($category) {
+            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments WHERE category = ? ORDER BY created_at DESC");
+            $stmt->bind_param("s", $category);
         } else {
-            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments");
+            $stmt = $conn->prepare("SELECT id, product_name, category, price, quantity, image, features FROM equipments ORDER BY created_at DESC");
         }
+
         $stmt->execute();
         $result = $stmt->get_result();
         $products = [];
         while ($row = $result->fetch_assoc()) {
             $products[] = $row;
         }
-        return [ 'success' => true, 'message' => 'All products', 'data' => $products ];
+        return ['success' => true, 'message' => 'All products', 'data' => $products];
     }
 
     public function getProductById($id) {

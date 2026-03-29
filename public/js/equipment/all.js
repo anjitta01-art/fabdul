@@ -17,12 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const searchForm = document.getElementById("search-form");
 const searchField = document.getElementById("search-field");
+const categoryField = document.getElementById("search-category");
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const search = encodeURIComponent(searchField.value);
+  const category = encodeURIComponent(categoryField.value);
+
   fetch(
-    `/fabdul/controller/admin/products/all-items.php?search=${encodeURIComponent(searchField.value)}`,
+    `/fabdul/controller/admin/products/all-items.php?search=${search}&category=${category}`,
   )
     .then((res) => res.json())
     .then((data) => {
@@ -40,6 +44,7 @@ const clearBtn = document.getElementById("clear-btn");
 
 clearBtn.addEventListener("click", () => {
   searchField.value = "";
+  categoryField.value = "";
 
   fetch("/fabdul/controller/admin/products/all-items.php")
     .then((res) => res.json())
