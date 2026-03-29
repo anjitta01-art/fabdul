@@ -71,17 +71,21 @@ class Auth extends DBConnection {
         $hashedPassword = $user['password'];
 
         if (password_verify($password, $hashedPassword)) {
+            $updateStmt = $conn->prepare("UPDATE users SET role = ? WHERE id = ?");
+            $updateStmt->bind_param("si", $role, $user['id']);
+            $updateStmt->execute();
+
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['role'] = $user['role'];
+            $_SESSION['role'] = $role;
             return ['success' => true, 'message' => 'Login successful', 'user' => [
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'username' => $user['username'],
-                'role' => $user['role']
+                'role' => $role
             ]];
         } else {
             return ['success' => false, 'message' => 'Invalid login'];

@@ -18,6 +18,10 @@ username.addEventListener("blur", function () {
   validateUsername(username.value.trim(), "username-error");
 });
 
+phone.addEventListener("blur", () => {
+  validatePhoneNumber(phone.value.trim(), "phone-error");
+});
+
 confirmPassword.addEventListener("blur", function () {
   validateConfirmPassword(
     password.value,

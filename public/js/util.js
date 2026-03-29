@@ -23,6 +23,19 @@ function validateUsername(username, errorId) {
   return isValid;
 }
 
+function validatePhoneNumber(phoneNumber, errorId) {
+  const phoneRegex = /^\d{11}$/;
+  const isValid = phoneRegex.test(phoneNumber);
+
+  const errorElement = document.getElementById(errorId);
+  if (!isValid && errorElement) {
+    errorElement.textContent = "Phone number must be 11 digits";
+  } else if (errorElement) {
+    errorElement.textContent = "";
+  }
+  return isValid;
+}
+
 function validateConfirmPassword(password, confirmPassword, errorId) {
   const isValid = password === confirmPassword;
   const errorElement = document.getElementById(errorId);

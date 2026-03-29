@@ -107,21 +107,39 @@
                     </div>
                 </div>
                 <form id="rent-form" class="space-y-4">
-                    <div>
-                        <label class="block text-sm text-gray-600">Rent Date</label>
-                        <input type="date" id="rent-date" class="w-full border rounded-md px-3 py-2">
+                    <!-- STEP 1 -->
+                    <div id="step-1" class="space-y-4">
+                        <div>
+                            <label>Rent Date</label>
+                            <input type="date" id="rent-date" class="w-full border rounded-md px-3 py-2">
+                        </div>
+                        <div>
+                            <label>Return Date</label>
+                            <input type="date" id="return-date" class="w-full border rounded-md px-3 py-2">
+                        </div>
+                        <div>
+                            <label>Quantity <span id="stock_quantity" class="text-gray-600 text-xs font-medium"></span></label>
+                            <input type="number" id="rent-quantity" min="1" class="w-full border rounded-md px-3 py-2">
+                        </div>
+                        <button type="button" id="to-payment" class="w-full bg-purple-700 text-white py-2 rounded-md">Continue to Payment</button>
                     </div>
-                    <div>
-                        <label class="block text-sm text-gray-600">Return Date</label>
-                        <input type="date" id="return-date" class="w-full border rounded-md px-3 py-2">
+
+                    <!-- STEP 2 -->
+                    <div id="step-2" class="hidden space-y-4">
+                        <div class="bg-yellow-100 text-yellow-800 p-2 rounded text-sm">Payment</div>
+                        <div>
+                            <label>Card Number</label>
+                            <input type="text" id="card-number" required minlength="16" maxlength="19" inputmode="numeric" pattern="[0-9 ]+" class="w-full border rounded-md px-3 py-2"  placeholder="4242 4242 4242 4242">
+                        </div>
+                        <div class="flex gap-4">
+                            <input type="text" id="expiry" required minlength="5" maxlength="5" pattern="^(0[1-9]|1[0-2])\/\d{2}$" placeholder="MM/YY"  class="w-1/2 border px-3 py-2 rounded-md">
+                            <input type="text" id="cvv" required minlength="3" maxlength="4" inputmode="numeric" pattern="\d{3,4}" placeholder="CVV"  class="w-1/2 border px-3 py-2 rounded-md">
+                        </div>
+                        <div class="flex gap-2">
+                            <button type="button" id="back-btn" class="w-1/2 border py-2 rounded-md">Back</button>
+                            <button type="submit" id="rent-btn" class="w-1/2 bg-purple-700 text-white py-2 rounded-md">Pay & Rent</button>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-sm text-gray-600">Quantity <span id="stock_quantity" class="text-gray-600 text-sm font-semibold"></span></label>
-                        <input type="number" id="rent-quantity" min="1" class="w-full border rounded-md px-3 py-2">
-                    </div>
-                    <button type="submit" id="rent-btn" class="w-full bg-purple-700 text-white py-2 rounded-md cursor-pointer hover:bg-purple-800 transition">
-                        Confirm Rent
-                    </button>
                 </form>
             </div>
         </div>

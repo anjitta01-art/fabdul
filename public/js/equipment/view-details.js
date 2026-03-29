@@ -106,3 +106,24 @@ form.addEventListener("submit", (e) => {
       rentBtn.textContent = "Confirm Rent";
     });
 });
+
+const step1 = document.getElementById("step-1");
+const step2 = document.getElementById("step-2");
+
+const toPaymentBtn = document.getElementById("to-payment");
+const backBtn = document.getElementById("back-btn");
+
+toPaymentBtn.addEventListener("click", () => {
+  if (!rentDate.value || !returnDate.value || !rentQuantity.value) {
+    showToast("Fill all rent details", "error", 2000);
+    return;
+  }
+
+  step1.classList.add("hidden");
+  step2.classList.remove("hidden");
+});
+
+backBtn.addEventListener("click", () => {
+  step2.classList.add("hidden");
+  step1.classList.remove("hidden");
+});

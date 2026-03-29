@@ -17,6 +17,10 @@ username.addEventListener("blur", function () {
   validateUsername(username.value.trim(), "username-error");
 });
 
+phone.addEventListener("blur", () => {
+  validatePhoneNumber(phone.value.trim(), "phone-error");
+});
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 

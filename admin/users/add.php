@@ -43,6 +43,7 @@ include '../../include/check-auth.php';
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
                                 <input type="tel" placeholder="Phone Number" id="phone" name="phone" required class="border border-gray-300 text-sm rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full">
+                                <div id="phone-error" class="text-red-500 text-xs mt-1"></div>
                             </div>
                             <div>
                                 <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
