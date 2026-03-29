@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <span class=" font-semibold">${formatDate(item.rent_date)}</span>
                     </div>
                     <div class="flex items-center gap-x-2">
-                      <span class="text-gray-600">Return Date:</span>
+                      <span class="text-gray-600">Due Date:</span>
                       <span class=" font-semibold">${formatDate(item.return_date)}</span>
                     </div>
                     <div class="flex items-center gap-x-2">
@@ -117,7 +117,7 @@ function returnProduct() {
     .then((data) => {
       if (data.success) {
         showToast(data.message, "success", 2000);
-        window.location.href = "/fabdul/equipments/rent-history.php";
+        window.location.href = "/fabdul/equipments/returned-items.php";
       } else {
         showToast(data.message, "error", 2000);
       }
