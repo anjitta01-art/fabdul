@@ -160,4 +160,31 @@ class Rent {
         }
         return ['success' => true, 'message' => 'Rented Equipments', 'data' => $products];
     }
+
+    public function getAllDueRents() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("SELECT r.rent_date, r.return_date, r.quantity, e.product_name, u.name, u.email, u.phone FROM rents AS r JOIN equipments AS e ON r.product_id = e.id JOIN users AS u ON r.user_id = u.id WHERE r.return_date < NOW() ORDER BY r.created_at DESC");
+        if (!$stmt) {
+            return ['success' => false, 'message' => "Connection Error"];
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $rents = [];
+        $todayDate = time();
+        while ($row = $result->fetch_assoc()) {
+            $returnDate = strtotime($row['return_date']);
+            $noOfDueDays = floor(($todayDate - $returnDate) / (60 * 60 * 24));
+            $row['due_days'] = $noOfDueDays;
+            $rents[] = $row;
+        }
+
+        return ['success' => true, 'message' => 'Rented Equipments', 'data' => $rents];
+    }
 }

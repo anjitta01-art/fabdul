@@ -2,8 +2,10 @@
     <ul class="space-y-4 text-sm">
         <li><a href="/fabdul/admin/index.php">Dashboard</a></li>
         <li><a href="/fabdul/admin/users/index.php">Users</a></li>
+        <li><a href="/fabdul/admin/users/add.php">Add User</a></li>
         <li><a href="/fabdul/admin/products/index.php">Products</a></li>
         <li><a href="/fabdul/admin/add-item.php">Add Item</a></li>
+        <li><a href="/fabdul/admin/products/dued-rents.php">Dued Rents</a></li>
     </ul>
     <a href="/fabdul/controller/auth/logout.php" class="flex items-center gap-x-2 mt-10 text-red-500 hover:text-red-700">
         <span>

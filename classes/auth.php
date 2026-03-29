@@ -1,7 +1,7 @@
 <?php
 
 class Auth extends DBConnection {
-    private function emailTaken($email) {
+    public function emailTaken($email) {
         $stmt = $this->getConnection()->prepare("SELECT id FROM users WHERE email = ?");
         if (!$stmt) return false;
         $stmt->bind_param("s", $email);
@@ -10,7 +10,7 @@ class Auth extends DBConnection {
         return $stmt->num_rows > 0;
     }
 
-    private function usernameTaken($username) {
+    public function usernameTaken($username) {
         $stmt = $this->getConnection()->prepare("SELECT id FROM users WHERE username = ?");
         if (!$stmt) return false;
         $stmt->bind_param("s", $username);

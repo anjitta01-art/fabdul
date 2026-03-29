@@ -63,4 +63,32 @@ class User {
             return ['success' => false, 'message' => 'Failed to update user'];
         }
     }
+
+    public function addNewUser($name, $email, $phone, $username, $password, $role) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+
+        $conn = $this->db->getConnection();
+        if ($this->auth->emailTaken($email)) {
+            return ['success' => false, 'message' => 'Email is already taken'];
+        }
+        if ($this->auth->usernameTaken($username)) {
+            return ['success' => false, 'message' => 'Username is already taken'];
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $conn->prepare("INSERT INTO users (name, email, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $name, $email, $phone, $username, $hashedPassword, $role);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            return ['success' => true, 'message' => 'User added successful'];
+        } else {
+            return ['success' => false, 'message' => 'Add user failed: ' . $stmt->error];
+        }
+    }
 }
