@@ -38,6 +38,8 @@
                             <option value="servers">Servers</option>
                             <option value="speakers">Speakers</option>
                             <option value="headphones">Headphones</option>
+                            <option value="printer">Printers</option>
+                            <option value="projector">Projector</option>
                         </select>
                     </div>
                 </form>

@@ -4,7 +4,7 @@
             <span>
                 <img src="/fabdul/images/laptop_ic.png" alt="Fabdul logo" class="w-8">
             </span>
-            <span class="text-xl text-purple-700 italic font-extrabold">FABDUL</span>
+            <span class="text-xl text-purple-700 italic font-extrabold lobsterWrite">Fabdul</span>
         </div>
         <nav>
             <ul class="flex items-center space-x-4 text-sm font-medium text-[#333333]">
@@ -35,7 +35,10 @@
                     }
                 ?>
                 <li>
-                    <a href="about-us.php">About</a>
+                    <a href="/fabdul/about-us.php">About Us</a>
+                </li>
+                <li>
+                    <a href="/fabdul/contact-us.php">Contact Us</a>
                 </li>
             </ul>
         </nav>

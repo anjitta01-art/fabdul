@@ -100,7 +100,7 @@
                         <p class="text-[#bbb] text-sm font-medium w-2/3">Need 100+ units or specialized configurations? Our enterprise team handles custom bulk procurement dedicated support.</p>
                     </div>
                     <div>
-                        <a href="#" class="bg-white text-gray-800 px-6 py-3 rounded-md hover:bg-gray-200 transition-colors text-xs font-medium">Contact Enterprise Sales</a>
+                        <a href="contact-us.php" class="bg-white text-gray-800 px-6 py-3 rounded-md hover:bg-gray-200 transition-colors text-xs font-medium">Contact Enterprise Sales</a>
                     </div>
                 </div>
             </div>

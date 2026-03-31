@@ -8,19 +8,24 @@
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../images/laptop_ic.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .lobsterWrite {
+            font-family: "Caveat", sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div>
         <?php include '../include/header.php'; ?>
         <section class="grid grid-cols-2 min-h-screen">
-            <div class="bg-purple-700 text-white flex items-center justify-center">
-                <div>
-                    <h1 class="text-5xl font-bold text-center">Welcome to Fabdul <br/>Tech Rentals</h1>
+            <div class="text-white flex items-center justify-center bg-no-repeat bg-cover bg-center" style="background-image: url('../images/auth_bg.jpg');">
+                <div class="w-full h-full bg-black/70 flex flex-col justify-center items-center">
+                    <h1 class="text-5xl font-bold text-center lobsterWrite">Welcome to Fabdul <br/>Tech Rentals</h1>
                     <p class="py-4 text-sm text-center font-medium">Already have an account?</p>
                     <div class="flex justify-center">
-                        <a href="login.php" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-purple-800">Log in</a>
+                        <a href="login.php" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-gray-200/10">Log in</a>
                     </div>
                 </div>
             </div>
