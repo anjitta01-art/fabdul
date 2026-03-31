@@ -101,17 +101,26 @@ cancelReturnBtn.addEventListener("click", () => {
   returnModal.classList.add("hidden");
 });
 
-confirmReturnBtn.addEventListener("click", () => {
+confirmReturnBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
   returnProduct();
   rentReturnId = null;
   returnModal.classList.add("hidden");
 });
 
+const review = document.getElementById("review");
+
 function returnProduct() {
   if (!rentReturnId) return;
 
-  fetch(`/fabdul/controller/rent/return-item.php?id=${rentReturnId}`, {
-    method: "GET",
+  const formData = new FormData();
+  formData.append("id", rentReturnId);
+  formData.append("review", review.value);
+
+  fetch(`/fabdul/controller/rent/return-item.php`, {
+    method: "POST",
+    body: formData,
   })
     .then((response) => response.json())
     .then((data) => {

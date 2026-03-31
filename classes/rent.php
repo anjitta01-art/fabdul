@@ -77,7 +77,7 @@ class Rent {
         return ['success' => true, 'message' => 'Rented Equipments', 'data' => $products];
     }
 
-    public function returnItem($rentId) {
+    public function returnItem($rentId, $review) {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -98,8 +98,8 @@ class Rent {
         $rent = $result->fetch_assoc();
         $productId = $rent['product_id'];
         $quantity = $rent['quantity'];
-        $stmt = $conn->prepare("UPDATE rents SET returned_date = CURDATE() WHERE id = ? AND user_id = ?");
-        $stmt->bind_param("ii", $rentId, $userId);
+        $stmt = $conn->prepare("UPDATE rents SET returned_date = CURDATE(), review = ? WHERE id = ? AND user_id = ?");
+        $stmt->bind_param("sii", $review, $rentId, $userId);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             $this->item->increaseQuantity($productId, $quantity);
@@ -145,7 +145,7 @@ class Rent {
         $userId = $_SESSION['user_id'];
 
         $conn = $this->db->getConnection();
-        $stmt = $conn->prepare("SELECT r.id, r.rent_date, r.return_date, r.quantity, r.rent_price, r.returned_date, e.product_name, e.category, e.features, e.image FROM rents AS r INNER JOIN equipments AS e  ON r.product_id = e.id WHERE r.user_id = ? ORDER BY r.created_at DESC");
+        $stmt = $conn->prepare("SELECT r.id, r.rent_date, r.review, r.return_date, r.quantity, r.rent_price, r.returned_date, e.product_name, e.category, e.features, e.image FROM rents AS r INNER JOIN equipments AS e  ON r.product_id = e.id WHERE r.user_id = ? ORDER BY r.returned_date DESC");
         $stmt->bind_param("i", $renterID);
         $stmt->execute();
         $result = $stmt->get_result();

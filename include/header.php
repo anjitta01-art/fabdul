@@ -76,7 +76,7 @@
         } else {
 
             echo '<a href="/fabdul/auth/login.php" class="text-sm font-medium text-[#333333]">Login</a>';
-            echo '<a href="/fabdul/auth/register.php" class="text-sm font-semibold text-white bg-purple-700 border border-purple-700 py-2 px-4 rounded-md hover:bg-purple-800">Get Started</a>';
+            echo '<a href="/fabdul/auth/register.php" class="text-sm font-semibold text-white bg-purple-700 border border-purple-700 py-2 px-4 rounded-md hover:bg-purple-800">Create Account</a>';
 
         }
         ?>

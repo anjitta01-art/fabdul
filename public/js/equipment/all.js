@@ -70,8 +70,8 @@ function renderProducts(items) {
 
     let content = `
       <li class="bg-white rounded-xl shadow-lg border border-[#eee]">
-        <div class="relative rounded-t-xl overflow-hidden h-48">
-          <img src="/fabdul/images/uploads/${item.image}" alt="${item.product_name}" class="w-full h-48 object-cover rounded-t">
+        <div class="relative rounded-t-xl overflow-hidden h-68">
+          <img src="/fabdul/images/uploads/${item.image}" alt="${item.product_name}" class="w-full h-68 object-cover rounded-t">
           <div class="absolute inset-0 bg-black/30 z-10"></div>
         </div>
         <div>

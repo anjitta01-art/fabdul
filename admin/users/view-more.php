@@ -77,6 +77,7 @@ $userId = isset($_GET['id']) ? intval($_GET['id']) : 0;
                                         <th class="px-6 py-3 text-left w-44">Rent Date</th>
                                         <th class="px-6 py-3 text-left">Rent Price</th>
                                         <th class="px-6 py-3 text-left">Quantity</th>
+                                        <th class="px-6 py-3 text-left">Review</th>
                                         <th class="px-6 py-3 text-left w-44">Return Date</th>
                                         <th class="px-6 py-3 text-left w-48">Returned</th>
                                     </tr>
@@ -85,7 +86,7 @@ $userId = isset($_GET['id']) ? intval($_GET['id']) : 0;
                                     <!-- Users appear here -->
 
                                     <tr class="hover:bg-gray-50 transition hidden" id="no-data">
-                                        <td colspan="8" class="text-center py-6 text-gray-500">
+                                        <td colspan="9" class="text-center py-6 text-gray-500">
                                             No rents found
                                         </td>
                                     </tr>

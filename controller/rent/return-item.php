@@ -8,9 +8,10 @@ require_once '../../classes/rent.php';
 
 $rent = new Rent();
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $rentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
-    $result = $rent->returnItem($rentId);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $rentId = intval($_POST['id']);
+    $review = trim($_POST['review']);
+    $result = $rent->returnItem($rentId, $review);
     echo json_encode($result);
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);

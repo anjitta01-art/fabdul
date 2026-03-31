@@ -38,7 +38,7 @@
             <section class="px-20 py-20 space-y-14">
                 <div class="px-20">
                     <div class="bg-purple-900/40 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg py-10 px-14 w-3xl mx-auto">
-                        <form class="space-y-10 text-gray-800">
+                        <form class="space-y-10 text-gray-800" id="contactForm">
                             <div class="text-center flex flex-col justify-center items-center">
                                 <p class="flex items-center">
                                     <span class="text-lg font-bold">
@@ -48,7 +48,7 @@
                                 </p>
                                 <h3 class="text-xl font-bold text-center">Get in Touch</h3>
                             </div>
-                            <div class="grid grid-cols-2 gap-10">
+                            <div class="grid grid-cols-2 gap-6">
                                 <div class="flex flex-col">
                                     <label for="fullname" class="flex text-sm font-medium gap-x-2">
                                         <span>Full Name</span>
@@ -62,6 +62,7 @@
                                         <span>*</span>
                                     </label>
                                     <input type="text" placeholder="Email" id="email" class="bg-gray-300/50 border border-gray-400 rounded-md font-medium px-2 py-2 focus:outline-none">
+                                    <div id="email-error" class="text-red-500 text-xs mt-1"></div>
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="phone" class="flex text-sm font-medium gap-x-2">
@@ -69,11 +70,11 @@
                                         <span>*</span>
                                     </label>
                                     <input type="text" placeholder="Phone Number" id="phone" class="bg-gray-300/50 border border-gray-400 rounded-md font-medium px-2 py-2 focus:outline-none">
+                                    <div id="phone-error" class="text-red-500 text-xs mt-1"></div>
                                 </div>
                                 <div class="flex flex-col">
                                     <label for="equipmentType" class="flex text-sm font-medium gap-x-2">
                                         <span>Equipment</span>
-                                        <span>*</span>
                                     </label>
                                     <input type="text" placeholder="Equipment" id="equipmentType" class="bg-gray-300/50 border border-gray-400 rounded-md font-medium px-2 py-2 focus:outline-none">
                                 </div>
@@ -85,8 +86,8 @@
                                     <textarea name="message" id="message" placeholder="Message" class="h-40 border border-gray-400 bg-gray-300/50 rounded-md font-medium px-2 py-2 focus:outline-none"></textarea>
                                 </div>
                                 <div class="flex justify-center items-center col-span-2">
-                                    <button class="border border-gray-400 rounded-lg py-2 px-6 text-sm flex items-center gap-x-4 font-semibold cursor-pointer hover:bg-gray-200/50">
-                                        <span>Send Message</span>
+                                    <button id="submit-btn" class="border border-gray-400 rounded-lg py-2 px-6 text-sm flex items-center gap-x-4 font-semibold cursor-pointer hover:bg-gray-200/50">
+                                        <span id="btn-text-space">Send Message</span>
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024"><path fill="currentColor" d="M754.8 480H160a32 32 0 1 0 0 64h594.8L521.3 777.3a32 32 0 0 0 45.4 45.4l288-288a32 32 0 0 0 0-45.4l-288-288a32 32 0 1 0-45.4 45.4z"/></svg>
                                         </span>
@@ -125,6 +126,17 @@
             </section>
         </main>
         <?php include 'include/footer.php'; ?>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="hidden fixed top-5 right-5 z-50">
+            <div id="toast-box" class="bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-3">
+                <div id="toast-message" class="text-sm"></div>
+            </div>
+        </div>
     </div>
+
+
+    <script src="public/js/util.js"></script>
+    <script src="public/js/contact-us.js"></script>
 </body>
 </html>

@@ -104,14 +104,18 @@
 
         <!-- Return Modal -->
         <div id="return-modal" class="hidden fixed inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
+            <form class="bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-xl font-bold mb-4">Return Product</h2>
                 <p class="text-gray-600">Are you sure you want to return this product?</p>
+                <div class="py-10 flex flex-col gap-x-2">
+                    <label for="review" class="text-gray-700 font-medium">Review</label>
+                    <textarea name="review" id="review" placeholder="Let us know how you feel about this item..." class="h-38 border-2 focus:outline-none py-2 px-4 border-gray-400 rounded-lg"></textarea>
+                </div>
                 <div class="flex justify-end gap-3 mt-6">
                     <button id="cancel-return" class="bg-gray-300 text-gray-700 text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Cancel</button>
                     <button id="confirm-return" class="bg-purple-700 text-white text-sm cursor-pointer py-2 px-4 rounded-md hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2">Return Item</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
