@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td class="px-6 py-2">${formatDate(item.rent_date)}</td>
                     <td class="px-6 py-2">£${item.rent_price}</td>
                     <td class="px-6 py-2">${item.quantity}</td>
-                    <td class="px-6 py-2">${item.review}</td>
+                    <td class="px-6 py-2">${item.review != null ? item.review : ""}</td>
                     <td class="px-6 py-2">${formatDate(item.return_date)}</td>
                     <td class="px-6 py-2">
                         <span class="px-2 py-1 rounded-full font-medium ${styleReturned}">

@@ -25,11 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td class="px-6 py-2">${item.name}</td>
                     <td class="px-6 py-2">${item.email}</td>
                     <td class="px-6 py-2">${item.role}</td>
-                    <td class="px-6 py-2">
-                        <span class="px-2 py-1 rounded-full font-medium ${accActive}">
-                            ${item.status}
-                        </span>
-                    </td>
                     <td class="px-6 py-2">${formatDate(item.created_at)}</td>
                     <td class="px-6 py-2 space-x-2">
                         <a href="/fabdul/admin/users/view-more.php?id=${item.id}" class="bg-blue-500 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-600 transition">

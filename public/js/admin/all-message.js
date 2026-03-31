@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             row.setAttribute("data-product-id", item.id);
             row.innerHTML = `
                     <td class="px-6 py-2 font-medium">${index + 1}</td>
-                    <td class="px-6 py-2">${item.name}</td>
+                    <td class="px-6 py-2">${item.fullname}</td>
                     <td class="px-6 py-2">${item.email}</td>
                     <td class="px-6 py-2">${item.phone}</td>
                     <td class="px-6 py-2">${item.equipment}</td>

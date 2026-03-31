@@ -31,7 +31,6 @@ include '../../include/check-auth.php';
                                     <th class="px-6 py-3 text-left">Name</th>
                                     <th class="px-6 py-3 text-left">Email</th>
                                     <th class="px-6 py-3 text-left">Role</th>
-                                    <th class="px-6 py-3 text-left">Status</th>
                                     <th class="px-6 py-3 text-left">Date Joined</th>
                                     <th class="px-6 py-3 text-left">Actions</th>
                                 </tr>

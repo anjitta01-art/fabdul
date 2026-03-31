@@ -36,7 +36,7 @@ include '../include/check-auth.php';
                             <p class="text-3xl font-bold" id="activeRentals">30</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow">
-                            <h2 class="text-xl font-semibold mb-2">Revenue This Month</h2>
+                            <h2 class="text-xl font-semibold mb-2">Revenue</h2>
                             <p class="text-3xl font-bold" id="revenue">$5,000</p>
                         </div>
                     </div>
