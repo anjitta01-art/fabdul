@@ -25,23 +25,36 @@ include '../include/check-auth.php';
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="bg-white p-6 rounded-lg shadow">
                             <h2 class="text-xl font-semibold mb-2">Total Users</h2>
-                            <p class="text-3xl font-bold">150</p>
+                            <p class="text-3xl font-bold" id="totalUsers">150</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow">
                             <h2 class="text-xl font-semibold mb-2">Total Products</h2>
-                            <p class="text-3xl font-bold">75</p>
+                            <p class="text-3xl font-bold" id="totalEquipments">75</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow">
                             <h2 class="text-xl font-semibold mb-2">Active Rentals</h2>
-                            <p class="text-3xl font-bold">30</p>
+                            <p class="text-3xl font-bold" id="activeRentals">30</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow">
                             <h2 class="text-xl font-semibold mb-2">Revenue This Month</h2>
-                            <p class="text-3xl font-bold">$5,000</p>
+                            <p class="text-3xl font-bold" id="revenue">$5,000</p>
                         </div>
                     </div>
                 </div>
         </main>
+
+
+        <!-- Toast Notification -->
+        <div id="toast" class="hidden fixed top-5 right-5 z-50">
+            <div id="toast-box" class="bg-gray-800 text-white px-4 py-3 rounded shadow-lg flex items-center gap-3">
+                <div id="toast-message" class="text-sm"></div>
+            </div>
+        </div>
     </div>
+
+
+
+    <script src="../public/js/util.js"></script>
+    <script src="../public/js/admin/dashboard.js"></script>
 </body>
 </html>
