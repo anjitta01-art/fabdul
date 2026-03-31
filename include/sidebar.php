@@ -5,7 +5,7 @@
         <li><a href="/fabdul/admin/users/add.php">Add User</a></li>
         <li><a href="/fabdul/admin/products/index.php">Products</a></li>
         <li><a href="/fabdul/admin/add-item.php">Add Item</a></li>
-        <li><a href="/fabdul/admin/products/dued-rents.php">Dued Rents</a></li>
+        <li><a href="/fabdul/admin/products/dued-rents.php">Due Rents</a></li>
         <li><a href="/fabdul/admin/message.php">Messages</a></li>
     </ul>
     <a href="/fabdul/controller/auth/logout.php" class="flex items-center gap-x-2 mt-10 text-red-500 hover:text-red-700">

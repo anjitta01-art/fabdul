@@ -170,7 +170,7 @@ class Rent {
         }
 
         $conn = $this->db->getConnection();
-        $stmt = $conn->prepare("SELECT r.rent_date, r.return_date, r.quantity, e.product_name, u.name, u.email, u.phone FROM rents AS r JOIN equipments AS e ON r.product_id = e.id JOIN users AS u ON r.user_id = u.id WHERE r.return_date < NOW() ORDER BY r.created_at DESC");
+        $stmt = $conn->prepare("SELECT r.rent_date, r.return_date, r.quantity, e.product_name, u.name, u.email, u.phone FROM rents AS r JOIN equipments AS e ON r.product_id = e.id JOIN users AS u ON r.user_id = u.id WHERE r.return_date < NOW() AND r.returned_date IS NULL ORDER BY r.created_at DESC");
         if (!$stmt) {
             return ['success' => false, 'message' => "Connection Error"];
         }
