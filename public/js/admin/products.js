@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
           noDataRow.classList.remove("hidden");
         } else {
           tableBody.innerHTML = "";
-          items.forEach((item) => {
+          items.forEach((item, index) => {
             const row = document.createElement("tr");
             row.classList.add("hover:bg-gray-50", "transition");
 
             row.setAttribute("data-product-id", item.id);
             row.innerHTML = `
-                    <td class="px-6 py-2 font-medium">${item.id}</td>
+                    <td class="px-6 py-2 font-medium">${index + 1}</td>
                     <td class="px-6 py-2">${item.product_name}</td>
                     <td class="px-6 py-2">${item.category}</td>
                     <td class="px-6 py-2 font-medium">£${item.price}</td>

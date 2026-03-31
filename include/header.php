@@ -1,15 +1,18 @@
 <header class="flex items-center py-5 px-20 border-b border-[#dfdfdf] justify-between">
     <div class="flex gap-x-8 items-center">
-        <a href="/fabdul/" class="flex items-center gap-x-2">
+        <div href="/fabdul/" class="flex items-center gap-x-2">
             <span>
                 <img src="/fabdul/images/laptop_ic.png" alt="Fabdul logo" class="w-8">
             </span>
             <span class="text-xl text-purple-700 italic font-extrabold">FABDUL</span>
-        </a>
+        </div>
         <nav>
             <ul class="flex items-center space-x-4 text-sm font-medium text-[#333333]">
                 <li>
-                    <a href="/fabdul/equipments/index.php">Equipments</a>
+                    <a href="/fabdul/index.php">Home</a>
+                </li>
+                <li>
+                    <a href="/fabdul/equipments/index.php">Browse Rentals</a>
                 </li>
                 <?php 
                     if (session_status() === PHP_SESSION_NONE) {
@@ -32,7 +35,7 @@
                     }
                 ?>
                 <li>
-                    <a href="#">Pricing</a>
+                    <a href="about-us.php">About</a>
                 </li>
             </ul>
         </nav>
@@ -70,7 +73,7 @@
         } else {
 
             echo '<a href="/fabdul/auth/login.php" class="text-sm font-medium text-[#333333]">Login</a>';
-            echo '<a href="/fabdul/auth/register.php" class="text-sm font-medium text-[#333333]">Register</a>';
+            echo '<a href="/fabdul/auth/register.php" class="text-sm font-semibold text-white bg-purple-700 border border-purple-700 py-2 px-4 rounded-md hover:bg-purple-800">Get Started</a>';
 
         }
         ?>

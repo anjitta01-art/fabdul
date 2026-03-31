@@ -8,28 +8,54 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="images/laptop_ic.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .lobsterWrite {
+            font-family: "Caveat", sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div class="">
         <?php include 'include/header.php'; ?>
-        <section>
-            <div class="relative h-[calc(100vh-79px)] bg-cover bg-center" style="background-image: url('images/hero.jpg');">
-                <div class="absolute inset-0 bg-black/70">
-                    <div class="relative z-10 text-white px-20 flex items-center justify-center h-full">
-                        <div class="text-center max-w-2xl space-y-6">
-                            <h1 class="text-5xl font-bold">Rent Smart, Work <br />Better with <span class="text-purple-700">FABDUL.</span></h1>
-                            <p class="pt-4">Rent high-performance laptops, servers, and networking equipment on demand. Next day delivery, full maintenance, and flexible monthly terms.</p>
-                            <div class="flex justify-center items-center gap-x-5">
-                                <a href="equipments/index.php" class="bg-purple-700 text-white text-sm font-medium py-2 px-4 rounded border border-purple-700 flex items-center">
-                                    <span>Browse Equipment</span>
-                                    <span class="text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m19 12l12 12l-12 12"/></svg></span>
-                                </a>
-                                <a href="#" class="border border-white rounded text-[#333] text-sm font-medium px-4 py-2 rounded bg-white">Talk to Sales</a>
+        <section class="h-[calc(100vh-79px)] bg-purple-200/50 py-10 px-20">
+            <div class="grid grid-cols-2 gap-x-6 items-center">
+                <div class="space-y-4 pr-6">
+                    <span class="rounded-2xl border border-purple-700 py-1 px-2 text-[10px] font-semibold text-purple-700">Trusted 500+ Enterprise Teams</span>
+                    <h1 class="text-6xl font-extrabold pt-2 lobsterWrite">Rent Smart, Work <br><span class="text-purple-700">Better with <br>FABDUL.</span></h1>
+                    <p class="text-gray-700 font-medium w-2/3">Rent high performace laptops, servers and networking equipments on Demand. Next-day delivery, full maintainance, and flexible monthly terms.</p>
+                    <div class="flex items-center gap-x-4">
+                        <a href="equipments/index.php" class="flex items-center font-medium text-sm bg-purple-700 border-purple-700 py-2 px-4 rounded-md text-white hover:bg-purple-800">
+                            <span>Browse Equipments</span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m19 12l12 12l-12 12"/></svg>
+                            </span>
+                        </a>
+                        <a href="#" class="border border-gray-700 text-sm font-medium text-gray-700 rounded-md py-2 px-4 hidden">Talk to Sales</a>
+                    </div>
+                    <hr class="text-gray-300 pr-6">
+                    <div class="grid grid-cols-2 justify-between">
+                        <div class="flex items-center">
+                            <span><img src="images/user1.jpg" alt="" class="w-10 h-10 rounded-full object-cover"></span>
+                            <span><img src="images/user2.jpg" alt="" class="w-10 h-10 rounded-full object-cover"></span>
+                            <span><img src="images/user3.jpg" alt="" class="w-10 h-10 rounded-full object-cover"></span>
+                            <span><img src="images/user4.jpg" alt="" class="w-10 h-10 rounded-full object-cover"></span>
+                        </div>
+                        <div>
+                            <div class="flex items-center text-yellow-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>
                             </div>
+                            <p class="text-sm text-gray-700 font-medium">4.9/5 from 2,000+ businesses</p>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <img src="images/hero.jpg" alt="Laptops Equipment" class="border-4 border-white rounded-2xl object-cover">
                 </div>
             </div>
         </section>
@@ -121,5 +147,9 @@
         </section>
         <?php include 'include/footer.php'; ?>
     </div>
+
+
+    <script src="public/js/util.js"></script>
+    <script src="public/js/equipment/all.js"></script>
 </body>
 </html>
