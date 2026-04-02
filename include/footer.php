@@ -3,7 +3,7 @@
         <div class="space-y-4">
             <h2 class="text-xl font-extrabold text-purple-700 lobsterWrite flex flex-col">
                 <span>Fabdul</span>
-                <span>Rental Service</span>
+                <span>Tech Rentals</span>
             </h2>
             <p>Premium IT infrastructutre rentals for the mordern enterprise. Scale your team's hardware overnight.</p>
             <div class="flex items-center gap-x-4 text-[#333]">

@@ -39,7 +39,7 @@ if (isset($_SESSION['user_id'])) {
                     <h1 class="text-5xl font-bold text-center lobsterWrite">Welcome to Fabdul <br/>Tech Rentals</h1>
                     <p class="py-4 text-sm text-center font-medium">Don't have an account?</p>
                     <div class="flex justify-center">
-                        <a href="register.php" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-gray-200/10">Register</a>
+                        <a href="register.php" class="py-3 px-8 border text-sm border-white rounded-xl font-semibold hover:bg-gray-200/10">Create Account</a>
                     </div>
                 </div>
             </div>

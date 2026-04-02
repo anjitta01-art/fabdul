@@ -3,7 +3,7 @@
         <div href="/fabdul/" class="flex items-center gap-x-2">
             <span class="text-2xl text-purple-700 italic font-extrabold lobsterWrite flex flex-col leading-none">
                 <span class="leading-none">Fabdul</span>
-                <span class="leading-none">Rental Service</span>
+                <span class="leading-none">Tech Rentals</span>
             </span>
         </div>
         <nav>
