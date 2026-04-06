@@ -21,22 +21,18 @@
                     if (isset($_SESSION['user_id'])) {
                         echo '<li>
                                 <a href="/fabdul/equipments/rent-history.php">All Rents</a>
-                            </li>';
-                    }
-                ?>
-                <?php 
-                    if (session_status() === PHP_SESSION_NONE) {
-                        session_start();
-                    }
-                    if (isset($_SESSION['user_id'])) {
-                        echo '<li>
+                            </li>
+                            <li>
                                 <a href="/fabdul/equipments/returned-items.php">Returned Items</a>
                             </li>';
+                    } else {
+                        echo '
+                            <li>
+                                <a href="/fabdul/about-us.php">About Us</a>
+                            </li>
+                        ';
                     }
                 ?>
-                <li>
-                    <a href="/fabdul/about-us.php">About Us</a>
-                </li>
                 <li>
                     <a href="/fabdul/contact-us.php">Contact Us</a>
                 </li>
@@ -55,9 +51,9 @@
             echo '
                 <div class="flex items-center gap-x-3">
                     <div>
-                        <button class="bg-purple-200/50 hover:bg-purple-300/50 text-purple-700 font-bold p-4 rounded-full cursor-pointer">
+                        <a href="/fabdul/profile/index.php" class="bg-purple-200/50 hover:bg-purple-300/50 text-purple-700 font-bold p-4 rounded-full cursor-pointer">
                             ' . $initials . '
-                        </button>
+                        </a>
                     </div>
                     <div class="hidden">
                         <div>

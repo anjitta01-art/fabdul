@@ -86,7 +86,7 @@ function renderProducts(items) {
           </div>
           <div class="flex items-center justify-between px-4 py-4 border-t-2 border-[#bbb]">
             <span class="text-xl font-bold">£${item.price}</span>
-            <a href="rent-item.php?id=${item.id}" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-sm font-medium">
+            <a href="/fabdul/equipments/rent-item.php?id=${item.id}" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-sm font-medium">
               Rent Now
             </a>
           </div>
