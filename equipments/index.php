@@ -45,37 +45,7 @@
                 </form>
             </div>
             <ul class="grid grid-cols-3 gap-10 pt-5" id="product-lists">
-                <li class="bg-white rounded-xl shadow-lg border border-[#eee]">
-                    <div class="relative rounded-t-xl overflow-hidden h-48">
-                        <img src="../images/items/laptop1.jpg" alt="MacBook Pro 16 inches M3 Max" class="w-full h-48 object-cover rounded-t">
-                        <span class="absolute top-4 left-4 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full z-20">In Stock</span>
-                        <div class="absolute inset-0 bg-black/30 z-10"></div>
-                    </div>
-                    <div>
-                        <div class="px-4 pt-4 pb-8 space-y-2">
-                            <p class="text-xs font-semibold text-purple-700">LAPTOPS</p>
-                            <h3 class="text-lg font-bold">MacBook Pro 16"M3 Max</h3>
-                            <ul class="space-y-3 text-sm text-[#535151] font-medium">
-                                <li class="flex items-center gap-2">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"><path d="M4 12c0-3.771 0-5.657 1.172-6.828S8.229 4 12 4s5.657 0 6.828 1.172S20 8.229 20 12s0 5.657-1.172 6.828S15.771 20 12 20s-5.657 0-6.828-1.172S4 15.771 4 12Z"/><path d="M7.732 16.268C8.464 17 9.643 17 12 17c.79 0 1.447 0 2-.028L16.972 14c.028-.553.028-1.21.028-2c0-2.357 0-3.536-.732-4.268S14.357 7 12 7s-3.536 0-4.268.732S7 9.643 7 12s0 3.536.732 4.268Z"/><path stroke-linecap="round" d="M8 2v2m8-2v2m-4-2v2M8 20v2m4-2v2m4-2v2m6-6h-2M4 8H2m2 8H2m2-4H2m20-4h-2m2 4h-2"/></g></svg></span>
-                                    <span>M3 Max Chip (16-core)</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor"><path d="M5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2M5 20a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2M5 12a1 1 0 1 0 0-2a1 1 0 0 0 0 2m15 1a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/><path fill-rule="evenodd" d="M0 9a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3zm3-1h18a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1" clip-rule="evenodd"/></g></svg></span>
-                                    <span>64GB Unified Memory</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.553 15.481L19 5.118C18.5 3.529 17.605 3 16.5 3h-9c-1.105 0-2 .53-2.5 2.118L2.447 15.48m19.106 0c-.6-1.13-1.742-1.893-3.053-1.893h-13c-1.311 0-2.454.764-3.053 1.893m19.106 0A3.86 3.86 0 0 1 22 17.294C22 19.341 20.433 21 18.5 21h-13C3.567 21 2 19.34 2 17.294c0-.658.162-1.277.447-1.813"/><path stroke-linecap="round" d="M18 17v1m-2.5-1v1M13 17v1m-2.5-1v1"/></g></svg></span>
-                                    <span>1TB SSD Storage</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex items-center justify-between px-4 py-4 border-t-2 border-[#bbb]">
-                            <span class="text-xl font-bold">$149 <span class="text-sm text-[#535151]">/mo</span></span>
-                            <a href="#" class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition-colors text-sm font-medium">Rent Now</a>
-                        </div>
-                    </div>
-                </li>
+                <!-- Items will appear here -->
 
                 <li class="text-center text-gray-600" id="no-product">No product yet</li>
             </ul>
