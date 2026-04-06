@@ -11,8 +11,13 @@ include '../../include/check-auth.php';
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../../images/laptop_ic.png" type="image/x-icon">
+    <style>
+        .lobsterWrite {
+            font-family: "Caveat", sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div>
