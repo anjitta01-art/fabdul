@@ -14,7 +14,7 @@
 <body>
     <div class="">
         <?php include '../include/header.php'; ?>
-        <section class="py-14 px-20 space-y-8">
+        <section class="pt-14 px-20 space-y-8">
             <div class="flex items-center justify-between">
                 <div>
                     <h2 class="text-2xl font-bold">Profile Details</h2>
@@ -44,6 +44,36 @@
                 <div class="flex items-center gap-x-2">
                     <h2 class="font-semibold">Role: </h2>
                     <p class="text-gray-700 font-semibold" id="role">Ammah</p>
+                </div>
+            </div>
+        </section>
+        <section class="px-20 py-10">
+            <div class="pb-4">
+                <h1 class="text-2xl font-bold mb-6 text-purple-700">My Rent History</h1>
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                        <thead class="bg-gray-100 text-gray-700 uppercase text-sm tracking-wider">
+                            <tr>
+                                <th class="px-6 py-3 text-left">ID</th>
+                                <th class="px-6 py-3 text-left w-60">Product Name</th>
+                                <th class="px-6 py-3 text-left">Category</th>
+                                <th class="px-6 py-3 text-left w-44">Rent Date</th>
+                                <th class="px-6 py-3 text-left">Rent Price</th>
+                                <th class="px-6 py-3 text-left">Quantity</th>
+                                <th class="px-6 py-3 text-left w-44">Return Date</th>
+                                <th class="px-6 py-3 text-left w-48">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rent-history-table" class="divide-y divide-gray-200 bg-white text-gray-700">
+                            <!-- Users appear here -->
+
+                            <tr class="hover:bg-gray-50 transition hidden" id="no-data">
+                                <td colspan="9" class="text-center py-6 text-gray-500">
+                                    No rents found
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

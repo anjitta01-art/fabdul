@@ -139,14 +139,20 @@ class Rent {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+        if (!isset($_SESSION['user_id'])) {
             return ['success' => false, 'message' => 'Unauthorized'];
         }
-        $userId = $_SESSION['user_id'];
+         $userId = $_SESSION['user_id'];
+
+        if ($renterID && $_SESSION['role'] !== 'admin') {
+            return ['success' => false, 'message' => 'Unauthorized'];
+        }
+
+        $mainId = $renterID ? $renterID : $userId;
 
         $conn = $this->db->getConnection();
         $stmt = $conn->prepare("SELECT r.id, r.rent_date, r.review, r.return_date, r.quantity, r.rent_price, r.returned_date, e.product_name, e.category, e.features, e.image FROM rents AS r INNER JOIN equipments AS e  ON r.product_id = e.id WHERE r.user_id = ? ORDER BY r.returned_date DESC");
-        $stmt->bind_param("i", $renterID);
+        $stmt->bind_param("i", $mainId);
         $stmt->execute();
         $result = $stmt->get_result();
 

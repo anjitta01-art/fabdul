@@ -51,15 +51,12 @@
             echo '
                 <div class="flex items-center gap-x-3">
                     <div>
+                        <span class="text-sm font-medium text-[#333333]">Welcome, ' . $name . '</span>
+                    </div>
+                    <div>
                         <a href="/fabdul/profile/index.php" class="bg-purple-200/50 hover:bg-purple-300/50 text-purple-700 font-bold p-4 rounded-full cursor-pointer">
                             ' . $initials . '
                         </a>
-                    </div>
-                    <div class="hidden">
-                        <div>
-                            <span>' . $name . '</span>
-                            <span>' . $email . '</span>
-                        </div>
                     </div>
                 </div>
                 <div>

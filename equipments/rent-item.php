@@ -133,7 +133,7 @@
                         </div>
                         <div class="flex gap-4">
                             <input type="text" id="expiry" required minlength="5" maxlength="5" pattern="^(0[1-9]|1[0-2])\/\d{2}$" placeholder="MM/YY"  class="w-1/2 border px-3 py-2 rounded-md">
-                            <input type="text" id="cvv" required minlength="3" maxlength="4" inputmode="numeric" pattern="\d{3,4}" placeholder="CVV"  class="w-1/2 border px-3 py-2 rounded-md">
+                            <input type="password" id="cvv" required minlength="3" maxlength="4" inputmode="numeric" pattern="\d{3,4}" placeholder="CVV"  class="w-1/2 border px-3 py-2 rounded-md">
                         </div>
                         <div class="flex gap-2">
                             <button type="button" id="back-btn" class="w-1/2 border py-2 rounded-md">Back</button>
