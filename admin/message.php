@@ -26,7 +26,7 @@ include '../include/check-auth.php';
             <div class="flex relative">
                 <?php include '../include/sidebar.php'; ?>
                 <div class="p-10 w-full">
-                    <h1 class="text-3xl font-bold mb-6">All Messages From Conatct us Page</h1>
+                    <h1 class="text-3xl font-bold mb-6">All Messages From Contact Us Page</h1>
                     <p class="text-gray-600">View all messages from the contact us page.</p>
                     <div class="overflow-x-auto mt-6">
                         <table class="w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm">

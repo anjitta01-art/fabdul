@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
           noDataRow.classList.remove("hidden");
         } else {
           tableBody.innerHTML = "";
-          items.forEach((item) => {
+          items.forEach((item, index) => {
             const accActive =
               item.status === "active"
                 ? "bg-green-100 text-green-800"
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             row.setAttribute("data-product-id", item.id);
             row.innerHTML = `
-                    <td class="px-6 py-2 font-medium">${item.id}</td>
+                    <td class="px-6 py-2 font-medium">${index + 1}</td>
                     <td class="px-6 py-2">${item.name}</td>
                     <td class="px-6 py-2">${item.email}</td>
                     <td class="px-6 py-2">${item.role}</td>
